@@ -2,21 +2,22 @@ package main
 
 import (
 	"gotris/config"
-	"image/color"
+	"gotris/screens/game/playfield"
 	"log"
 
 	"github.com/hajimehoshi/ebiten/v2"
-	"github.com/hajimehoshi/ebiten/v2/vector"
 )
 
-type Game struct{}
+type Game struct {
+	playfield *playfield.Playfield
+}
 
 func (g *Game) Update() error {
 	return nil
 }
 
 func (g *Game) Draw(screen *ebiten.Image) {
-	vector.StrokeLine(screen, 10, 10, 300, 100, 1, color.RGBA{0x39, 0x89, 0xd2, 0xff}, true)
+	g.playfield.Paint(screen)
 }
 
 func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
@@ -24,7 +25,9 @@ func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeigh
 }
 
 func main() {
-	game := &Game{}
+	playfield := &playfield.Playfield{Width: config.WAR_ZONE_WIDTH, Height: config.CANVAS_HEIGHT}
+
+	game := &Game{playfield: playfield}
 	ebiten.SetWindowSize(config.CANVAS_WIDTH, config.CANVAS_HEIGHT)
 	ebiten.SetWindowTitle("Gotris")
 
