@@ -38,5 +38,5 @@ func (this *Painter) drawGrid(canvas *ebiten.Image) {
 }
 
 func (this *Painter) drawBackground(canvas *ebiten.Image) {
-	canvas.Fill(config.ParseHexColor("#333333"))
+	canvas.Fill(config.BACKGROUND)
 }
