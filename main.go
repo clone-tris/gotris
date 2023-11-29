@@ -1,33 +1,33 @@
 package main
 
 import (
+	"github.com/hajimehoshi/ebiten/v2"
 	"gotris/config"
 	"gotris/screens/game/playfield"
 	"log"
-
-	"github.com/hajimehoshi/ebiten/v2"
 )
 
 type Game struct {
 	playfield *playfield.Playfield
 }
 
-func (g *Game) Update() error {
+func (this *Game) Update() error {
 	return nil
 }
 
-func (g *Game) Draw(screen *ebiten.Image) {
-	g.playfield.Paint(screen)
+func (this *Game) Draw(screen *ebiten.Image) {
+	this.playfield.Paint(screen)
 }
 
-func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
+func (this *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
 	return config.CANVAS_WIDTH, config.CANVAS_HEIGHT
 }
 
 func main() {
-	playfield := &playfield.Playfield{Width: config.WAR_ZONE_WIDTH, Height: config.CANVAS_HEIGHT}
+	game := &Game{
+		playfield: playfield.NewPlayfield(config.WAR_ZONE_WIDTH, config.CANVAS_HEIGHT),
+	}
 
-	game := &Game{playfield: playfield}
 	ebiten.SetWindowSize(config.CANVAS_WIDTH, config.CANVAS_HEIGHT)
 	ebiten.SetWindowTitle("Gotris")
 
