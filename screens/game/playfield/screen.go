@@ -14,7 +14,11 @@ func NewPlayfield(width int16, height int16) *Playfield {
 	return &Playfield{Width: width, Height: height, Painter: newPainter(width, height)}
 }
 
-func (this *Playfield) Paint(canvas *ebiten.Image) {
-	this.Painter.drawBackground(canvas)
-	this.Painter.drawGrid(canvas)
+func (this *Playfield) Paint() {
+	this.Painter.drawBackground()
+	this.Painter.drawGrid()
+}
+
+func (this *Playfield) Canvas() *ebiten.Image {
+	return this.Painter.Canvas
 }
