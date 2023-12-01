@@ -7,12 +7,12 @@ import (
 )
 
 type Painter struct {
-	Width  int16
-	Height int16
+	Width  int
+	Height int
 	Canvas *ebiten.Image
 }
 
-func newPainter(width int16, height int16) *Painter {
+func newPainter(width int, height int) *Painter {
 	return &Painter{Width: width, Height: height, Canvas: ebiten.NewImage(int(width), int(height))}
 }
 
