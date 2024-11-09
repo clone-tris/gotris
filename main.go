@@ -2,6 +2,7 @@ package main
 
 import (
 	"gotris/config"
+	"gotris/engine"
 	"gotris/screens/game"
 	"log"
 
@@ -9,7 +10,7 @@ import (
 )
 
 type Gotris struct {
-	gameScreen *game.GameScreen
+	gameScreen engine.Screen
 }
 
 func (this *Gotris) Update() error {
@@ -18,7 +19,6 @@ func (this *Gotris) Update() error {
 
 func (this *Gotris) Draw(screen *ebiten.Image) {
 	this.gameScreen.Paint()
-	screen.DrawImage(this.gameScreen.Canvas(), &ebiten.DrawImageOptions{})
 }
 
 func (this *Gotris) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {

@@ -18,9 +18,9 @@ func NewSquare(row int8, column int8, color config.SquareColor) *Square {
 }
 
 func (this *Square) Draw(canvas *ebiten.Image, refRow int8, refColumn int8) {
-	var WIDTH = config.SQUARE_WIDTH
-	var x = int(refColumn+this.Column) * WIDTH
-	var y = int(refRow+this.Row) * WIDTH
+	var width = config.SQUARE_WIDTH
+	var x = int(refColumn+this.Column) * width
+	var y = int(refRow+this.Row) * width
 
-	vector.DrawFilledRect(canvas, float32(x), float32(y), float32(WIDTH), float32(WIDTH), this.Color, false)
+	vector.DrawFilledRect(canvas, float32(x), float32(y), float32(width), float32(width), this.Color, false)
 }
