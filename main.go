@@ -14,11 +14,12 @@ type Gotris struct {
 }
 
 func (this *Gotris) Update() error {
+	this.gameScreen.Update()
 	return nil
 }
 
 func (this *Gotris) Draw(screen *ebiten.Image) {
-	this.gameScreen.Paint()
+	this.gameScreen.Paint(screen)
 }
 
 func (this *Gotris) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
@@ -28,7 +29,7 @@ func (this *Gotris) Layout(outsideWidth, outsideHeight int) (screenWidth, screen
 func main() {
 
 	gotris := &Gotris{
-		gameScreen: game.NewGameScreen(),
+		gameScreen: game.NewScreen(),
 	}
 
 	ebiten.SetWindowSize(config.CANVAS_WIDTH, config.CANVAS_HEIGHT)

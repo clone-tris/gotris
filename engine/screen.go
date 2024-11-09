@@ -1,6 +1,8 @@
 package engine
 
+import "github.com/hajimehoshi/ebiten/v2"
+
 type Screen interface {
 	Update()
-	Paint()
+	Paint(screen *ebiten.Image)
 }
