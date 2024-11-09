@@ -1,0 +1,7 @@
+[
+  {
+    "label": "Run project",
+    "command": "go run .",
+    "shell": "system"
+  }
+]

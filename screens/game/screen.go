@@ -20,7 +20,8 @@ func (this *GameScreen) Update() {
 
 func (this *GameScreen) Paint(screen *ebiten.Image) {
 	this.Painter.DrawSidebar()
+	this.Painter.DrawPlayfield()
 
-	screen.DrawImage(this.Painter.Canvas, &ebiten.DrawImageOptions{})
+	screen.DrawImage(this.Painter.MainCanvas, &ebiten.DrawImageOptions{})
 
 }
