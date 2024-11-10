@@ -1,6 +1,19 @@
 package game
 
-import "github.com/hajimehoshi/ebiten/v2"
+import (
+	"gotris/config"
+
+	"github.com/hajimehoshi/ebiten/v2"
+)
+
+var playfieldOptions *ebiten.DrawImageOptions
+var sidebarOptions *ebiten.DrawImageOptions
+
+func init() {
+	playfieldOptions = &ebiten.DrawImageOptions{}
+	playfieldOptions.GeoM.Translate(config.SIDEBAR_WIDTH, 0)
+	sidebarOptions = &ebiten.DrawImageOptions{}
+}
 
 type GameScreen struct {
 	Width   int16
@@ -19,9 +32,6 @@ func (this *GameScreen) Update() {
 }
 
 func (this *GameScreen) Paint(screen *ebiten.Image) {
-	this.Painter.DrawSidebar()
-	this.Painter.DrawPlayfield()
-
-	screen.DrawImage(this.Painter.MainCanvas, &ebiten.DrawImageOptions{})
-
+	screen.DrawImage(this.Painter.DrawSidebar(), sidebarOptions)
+	screen.DrawImage(this.Painter.DrawPlayfield(), playfieldOptions)
 }

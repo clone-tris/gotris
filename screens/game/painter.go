@@ -9,14 +9,14 @@ import (
 )
 
 type Painter struct {
-	MainCanvas      *ebiten.Image
+	Canvas          *ebiten.Image
 	PlayfieldCanvas *ebiten.Image
 	SidebarCanvas   *ebiten.Image
 }
 
 func NewPainter() *Painter {
 	return &Painter{
-		MainCanvas: ebiten.NewImage(
+		Canvas: ebiten.NewImage(
 			int(config.CANVAS_WIDTH),
 			int(config.CANVAS_HEIGHT),
 		),
@@ -25,20 +25,20 @@ func NewPainter() *Painter {
 	}
 }
 
-func (this *Painter) DrawSidebar() {
+func (this *Painter) DrawSidebar() *ebiten.Image {
 	this.DrawSidebarBackground()
 
-	this.MainCanvas.DrawImage(this.SidebarCanvas, &ebiten.DrawImageOptions{})
+	this.Canvas.DrawImage(this.SidebarCanvas, &ebiten.DrawImageOptions{})
+
+	return this.SidebarCanvas
 }
 
 func (this *Painter) DrawSidebarBackground() {
 	vector.DrawFilledRect(this.SidebarCanvas, 0, 0, config.SIDEBAR_WIDTH, float32(config.CANVAS_HEIGHT), config.SIDEBAR_BACKGROUND, false)
 }
 
-func (this *Painter) DrawPlayfield() {
+func (this *Painter) DrawPlayfield() *ebiten.Image {
 	engine.DrawGuide(this.PlayfieldCanvas, int(config.WAR_ZONE_WIDTH), config.CANVAS_HEIGHT)
 
-	drawOptions := &ebiten.DrawImageOptions{}
-	drawOptions.GeoM.Translate(config.SIDEBAR_WIDTH, 0)
-	this.MainCanvas.DrawImage(this.PlayfieldCanvas, drawOptions)
+	return this.PlayfieldCanvas
 }
