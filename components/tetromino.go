@@ -4,7 +4,7 @@ import (
 	"image/color"
 	"math/rand/v2"
 
-	"github.com/clone-tris/gotris/config"
+	"gotris/config"
 )
 
 type Type int
@@ -47,9 +47,9 @@ func makeSquares(t Type) [4]Square {
 	for i := range SQUARES_IN_SHAPE {
 		var cell = grid[i]
 		squares[i] = Square{
-			row:    cell[0],
-			column: cell[1],
-			color:  color,
+			Row:    cell[0],
+			Column: cell[1],
+			Color:  color,
 		}
 
 	}
@@ -57,7 +57,7 @@ func makeSquares(t Type) [4]Square {
 	return squares
 }
 
-func random() Shape {
+func Random() Shape {
 	t := Type(rand.IntN(len(GRIDS)))
 	squares := makeSquares(t)
 	return newShape(0, 0, squares)

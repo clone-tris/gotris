@@ -1,8 +1,10 @@
 package menu
 
 import (
-	"github.com/clone-tris/gotris/config"
-	"github.com/clone-tris/gotris/engine"
+	"gotris/components"
+	"gotris/config"
+	"gotris/engine"
+
 	"github.com/hajimehoshi/ebiten/v2"
 )
 
@@ -11,6 +13,13 @@ const BW = config.SQUARE_BORDER_WIDTH
 const IW = SW - (BW * 2)
 
 type Menu struct {
+	shape components.Shape
+}
+
+func NewMenu() *Menu {
+	return &Menu{
+		shape: components.Random(),
+	}
 }
 
 func (self *Menu) Update() {
@@ -19,8 +28,10 @@ func (self *Menu) Update() {
 
 func (self *Menu) Draw(screen *ebiten.Image) {
 	engine.DrawGuide(screen, 0, 0, config.CANVAS_WIDTH, config.CANVAS_HEIGHT)
-	for i := range 4 {
-		engine.DrawSquare(screen, i*SW, 0, config.TETROMINO_CYAN)
+
+	// todo use draw squares
+	for _, square := range graphic {
+		engine.DrawSquare(screen, square.Column*SW, square.Row*SW, square.Color)
 	}
 }
 

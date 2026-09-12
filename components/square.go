@@ -3,7 +3,7 @@ package components
 import "image/color"
 
 type Square struct {
-	row    int
-	column int
-	color  color.RGBA
+	Row    int
+	Column int
+	Color  color.RGBA
 }

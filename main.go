@@ -3,9 +3,10 @@ package main
 import (
 	"log"
 
-	"github.com/clone-tris/gotris/config"
-	"github.com/clone-tris/gotris/engine"
-	"github.com/clone-tris/gotris/screens/menu"
+	"gotris/config"
+	"gotris/engine"
+	"gotris/screens/menu"
+
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/inpututil"
 )
@@ -15,7 +16,7 @@ type Game struct {
 }
 
 func NewGame() *Game {
-	screen := &menu.Menu{}
+	screen := menu.NewMenu()
 	return &Game{
 		screen: screen,
 	}

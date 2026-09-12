@@ -3,7 +3,8 @@ package engine
 import (
 	"image/color"
 
-	"github.com/clone-tris/gotris/config"
+	"gotris/config"
+
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/vector"
 )

@@ -1,4 +1,4 @@
-module github.com/clone-tris/gotris
+module gotris
 
 go 1.27.1
 
