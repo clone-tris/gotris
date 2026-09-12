@@ -20,22 +20,22 @@ func ParseHexColor(s string) color.RGBA {
 	return c
 }
 
-var TETROMINO_CYAN = ParseHexColor("#6DECEE")
-var TETROMINO_BLUE = ParseHexColor("#0014E6")
-var TETROMINO_ORANGE = ParseHexColor("#E4A338")
-var TETROMINO_YELLOW = ParseHexColor("#F0EF4F")
-var TETROMINO_GREEN = ParseHexColor("#6EEB47")
-var TETROMINO_PURPLE = ParseHexColor("#9225E7")
-var TETROMINO_RED = ParseHexColor("#DC2F20")
+var TETROMINO_CYAN = ParseHexColor("#00F0F0")
+var TETROMINO_BLUE = ParseHexColor("#0000F0")
+var TETROMINO_ORANGE = ParseHexColor("#F0A000")
+var TETROMINO_YELLOW = ParseHexColor("#F0F000")
+var TETROMINO_GREEN = ParseHexColor("#00F000")
+var TETROMINO_PURPLE = ParseHexColor("#A000F0")
+var TETROMINO_RED = ParseHexColor("#F00000")
 
-var SQUARE_DEFAULT_COLOR = ParseHexColor("#cc8081")
-var SQUARE_BORDER_TOP = ParseHexColor("#ffffffb3")
+var SQUARE_DEFAULT_COLOR = ParseHexColor("#cc8081FF")
+var SQUARE_BORDER_TOP = ParseHexColor("#FFFFFF99")
 var SQUARE_BORDER_BOTTOM = ParseHexColor("#00000080")
-var SQUARE_BORDER_SIDE = ParseHexColor("#0000001a")
+var SQUARE_BORDER_SIDE = ParseHexColor("#0000001A")
 
 var UI_BACKGROUND = ParseHexColor("#333333")
 var UI_SIDEBAR_BACKGROUND = ParseHexColor("#545454")
-var UI_POPUP_BACKGROUND = ParseHexColor("#212121")
+var UI_POPUP_BACKGROUND = TETROMINO_CYAN
 var UI_GUIDE = ParseHexColor("#555555")
 var UI_WHITE_TEXT = ParseHexColor("#FFFFFF")
 var UI_POPUP_TEXT = ParseHexColor("#EFEFEF")
