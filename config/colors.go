@@ -28,7 +28,7 @@ var TETROMINO_GREEN = ParseHexColor("#00F000")
 var TETROMINO_PURPLE = ParseHexColor("#A000F0")
 var TETROMINO_RED = ParseHexColor("#F00000")
 
-var SQUARE_DEFAULT_COLOR = ParseHexColor("#cc8081FF")
+var SQUARE_DEFAULT_COLOR = ParseHexColor("#CC8081FF")
 var SQUARE_BORDER_TOP = ParseHexColor("#FFFFFF99")
 var SQUARE_BORDER_BOTTOM = ParseHexColor("#00000080")
 var SQUARE_BORDER_SIDE = ParseHexColor("#0000001A")
