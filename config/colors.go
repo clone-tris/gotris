@@ -17,6 +17,11 @@ func ParseHexColor(s string) color.RGBA {
 	default:
 		_ = fmt.Errorf("invalid length, must be 7 or 9")
 	}
+
+	c.R = uint8(uint32(c.R) * uint32(c.A) / 0xff)
+	c.G = uint8(uint32(c.G) * uint32(c.A) / 0xff)
+	c.B = uint8(uint32(c.B) * uint32(c.A) / 0xff)
+
 	return c
 }
 
