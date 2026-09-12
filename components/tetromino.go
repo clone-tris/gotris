@@ -2,6 +2,7 @@ package components
 
 import (
 	"image/color"
+	"math/rand/v2"
 
 	"github.com/clone-tris/gotris/config"
 )
@@ -18,7 +19,7 @@ const (
 	Z
 )
 
-var COLORS = []color.RGBA{
+var COLORS = [...]color.RGBA{
 	config.TETROMINO_CYAN,   // I
 	config.TETROMINO_YELLOW, // O
 	config.TETROMINO_PURPLE, // T
@@ -28,7 +29,7 @@ var COLORS = []color.RGBA{
 	config.TETROMINO_RED,    // Z
 }
 
-var GRIDS = [][4][2]int{
+var GRIDS = [...][SQUARES_IN_SHAPE][2]int{
 	{{0, 0}, {0, 1}, {0, 2}, {0, 3}}, // I
 	{{0, 0}, {0, 1}, {1, 0}, {1, 1}}, // O
 	{{0, 0}, {0, 1}, {0, 2}, {1, 1}}, // T
@@ -41,9 +42,9 @@ var GRIDS = [][4][2]int{
 func makeSquares(t Type) [4]Square {
 	var color = COLORS[t]
 	var grid = GRIDS[t]
-	var squares [4]Square
+	var squares [SQUARES_IN_SHAPE]Square
 
-	for i := range 4 {
+	for i := range SQUARES_IN_SHAPE {
 		var cell = grid[i]
 		squares[i] = Square{
 			row:    cell[0],
@@ -54,4 +55,10 @@ func makeSquares(t Type) [4]Square {
 	}
 
 	return squares
+}
+
+func random() Shape {
+	t := Type(rand.IntN(len(GRIDS)))
+	squares := makeSquares(t)
+	return newShape(0, 0, squares)
 }
