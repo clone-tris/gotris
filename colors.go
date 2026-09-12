@@ -5,7 +5,7 @@ import (
 	"image/color"
 )
 
-func ParseHexColor(s string) *color.RGBA {
+func ParseHexColor(s string) color.RGBA {
 	c := color.RGBA{}
 	c.A = 0xff
 
@@ -17,7 +17,7 @@ func ParseHexColor(s string) *color.RGBA {
 	default:
 		_ = fmt.Errorf("invalid length, must be 7 or 9")
 	}
-	return &c
+	return c
 }
 
 var TETROMINO_CYAN = ParseHexColor("#6DECEE")

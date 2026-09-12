@@ -1,6 +1,8 @@
 package main
 
 import (
+	"image/color"
+
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/vector"
 )
@@ -24,4 +26,8 @@ func drawGuide(canvas *ebiten.Image, x int, y int, width int, height int) {
 		lineX := x + i*SW
 		vector.StrokeLine(canvas, float32(lineX), float32(y), float32(lineX), float32(y+height), 1, UI_GUIDE, false)
 	}
+}
+
+func drawSquare(canvas *ebiten.Image, x int, y int, color color.RGBA) {
+	vector.FillRect(canvas, float32(x), float32(y), float32(SW), float32(SW), color, false)
 }

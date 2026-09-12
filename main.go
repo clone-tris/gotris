@@ -14,6 +14,9 @@ func (self *Game) Update() error {
 
 func (self *Game) Draw(screen *ebiten.Image) {
 	drawGuide(screen, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+	for i := range 4 {
+		drawSquare(screen, i*SW, 0, TETROMINO_CYAN)
+	}
 }
 
 func (self *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
