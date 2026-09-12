@@ -1,4 +1,4 @@
-package main
+package config
 
 const SQUARE_WIDTH = 24
 const SQUARE_BORDER_WIDTH = 3

@@ -1,5 +1,7 @@
 package main
 
+import "github.com/clone-tris/gotris/config"
+
 const SQUARES_IN_SHAPE = 4
 
 type Shape struct {
@@ -17,9 +19,9 @@ func newShape(row int, column int, squares [SQUARES_IN_SHAPE]Square) Shape {
 }
 
 func (self *Shape) computeSize() {
-	minRow := PUZZLE_HEIGHT
+	minRow := config.PUZZLE_HEIGHT
 	maxRow := 0
-	minColumn := PUZZLE_WIDTH
+	minColumn := config.PUZZLE_WIDTH
 	maxColumn := 0
 
 	for _, square := range self.squares {
