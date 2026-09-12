@@ -6,8 +6,8 @@ import (
 )
 
 func ParseHexColor(s string) color.RGBA {
-	c := color.RGBA{}
-	c.A = 0xff
+	c := color.RGBA{
+		A: 0xff}
 
 	switch len(s) {
 	case 7:
