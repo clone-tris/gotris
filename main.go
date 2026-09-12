@@ -4,7 +4,6 @@ import (
 	"log"
 
 	"github.com/hajimehoshi/ebiten/v2"
-	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
 )
 
 type Game struct{}
@@ -14,7 +13,7 @@ func (self *Game) Update() error {
 }
 
 func (self *Game) Draw(screen *ebiten.Image) {
-	ebitenutil.DebugPrint(screen, "Hello, World!")
+	drawGuide(screen, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
 }
 
 func (self *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
