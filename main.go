@@ -9,20 +9,20 @@ import (
 
 type Game struct{}
 
-func (g *Game) Update() error {
+func (self *Game) Update() error {
 	return nil
 }
 
-func (g *Game) Draw(screen *ebiten.Image) {
+func (self *Game) Draw(screen *ebiten.Image) {
 	ebitenutil.DebugPrint(screen, "Hello, World!")
 }
 
-func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
-	return 320, 240
+func (self *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
+	return CANVAS_WIDTH, CANVAS_HEIGHT
 }
 
 func main() {
-	ebiten.SetWindowSize(640, 480)
+	ebiten.SetWindowSize(CANVAS_WIDTH, CANVAS_HEIGHT)
 	ebiten.SetWindowTitle("Hello, World!")
 	if err := ebiten.RunGame(&Game{}); err != nil {
 		log.Fatal(err)
